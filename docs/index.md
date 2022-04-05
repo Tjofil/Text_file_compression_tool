@@ -1,5 +1,3 @@
-# **Textual files compression using Static Huffman and Lempel-Ziv algorithms**
-
 ## Intro and technical details
 
 The goal of this project is to write a program that has the ability to compress a text file without pre-processing it.It does so, first by applying the LZW compression algorithm of variable dictionary size (initially 1024 locations) and then forwarding such output to the static Huffman algorithm input. The goal is also to compare the results with the commercial WinRar compression software. Particular attention is paid to _sufficiently large_ files in which statistical features come to the fore..
