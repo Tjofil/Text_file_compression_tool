@@ -1,4 +1,4 @@
-#Text_file_compression_tool
+# Text_file_compression_tool
 
 ## Intro and technical details
 
