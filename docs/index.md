@@ -2,7 +2,7 @@
 
 ## Intro and technical details
 
-The goal of this project is to write a program that has the ability to compress a text file without pre-processing it.It does so, first by applying the LZW compression algorithm of variable dictionary size (initially 1024 locations) and then forwarding such output to the static Huffman algorithm input. The goal is also to compare the results with the commercial WinRar compression software. Particular attention is paid to _sufficiently large_ files in which statistical features come to the fore.
+The goal of this project is to write a program that has the ability to compress a text file without pre-processing. It does so, first by applying the LZW compression algorithm of variable dictionary size (initially 1024 locations) and then forwarding such output to the static Huffman algorithm input. The goal is also to compare the results with the commercial WinRar compression software. Particular attention is paid to _sufficiently large_ files in which statistical features come to the fore.
 
 The code was written and tested in the C ++ programming language and the std :: c ++ 17 standard. The code writing paradigm is completely procedural.
 
@@ -45,7 +45,7 @@ bitSerialization(lzwCompressed, huffmanMap, compressed);
 
 ## File reading and application of LZW compression algorithm
 
-As the idea is text processing within the set of characters defined by the ASCII standard, it is necessary to initialize the first 256 ([0 - 255]) positions within the table (dictionary), which is used by the algorithm itself with individual ASCII (Extended) characters.
+As the idea is a text processing within the set of characters defined by the ASCII standard, it is necessary to initialize the first 256 ([0 - 255]) positions within the table (dictionary), which is used by the algorithm itself with individual ASCII (Extended) characters.
 
 ```c++
 auto occurrence = std::make_unique<i64[]>(DICT_SIZE);
@@ -168,7 +168,7 @@ for (int i = 0; i < DICT_SIZE; ++i)
 return huffmanMap;
 ```
 
-## Serialization of binary codes into a output text file
+## Serialization of binary codes into an output text file
 
 The idea behind this procedure is extremely simple, we iterate through the result codes of the LZW algorithm, the corresponding Huffman equivalents that are of type string are being mapped and bit by bit (character by character) _printed_ into the characters that are ending up in the output file.
 
@@ -202,7 +202,7 @@ In the end, `progress` is sent as the last character so that the eventual error 
 
 ## Results and conclusions
 
-The following table shows the results of the program when working with text files of size euqal to a couple of megabytes, downloaded from the Internet.
+The following table shows the results of the program when working with text files of size equal to a couple of megabytes, downloaded from the Internet.
 
 | File | Original size[KB] | this.cpp - size[KB] | WinRar - siize[KB]
 | ------ | ------ | ------ | ------ |
